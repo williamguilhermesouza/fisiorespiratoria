@@ -1,12 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 
 import styles from './styles';
 
 export default function Dados() {
     return (
-        <View>
-            <Text>Hello1st</Text>
+        <View style={ styles.container }>
+            <View style={ styles.inputView }>
+                <View style={ styles.inputTextView }>
+                    <Text>Sexo</ Text>
+                </ View>
+                <TextInput style={ styles.textInput } />
+            </ View>
+
+            <TouchableOpacity style={ styles.button } onPress={ () => {} }>
+                <Text style={ styles.buttonText } >Calcular</Text>
+            </ TouchableOpacity>
         </View>
     );
 };

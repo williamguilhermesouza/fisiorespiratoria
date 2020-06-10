@@ -13,6 +13,7 @@ function headerOptions(title) {
         headerStyle: {
             backgroundColor: '#000000',
         },
+        headerTintColor: '#FFF',
     };
 }
 
@@ -20,8 +21,9 @@ export default function Routes() {
     return (
         <NavigationContainer>
             <AppStack.Navigator>
-                <AppStack.Screen name='Dados do Paciente' component={Dados} />
-                <AppStack.Screen name='Resultados' component={Resultados} />
+                <AppStack.Screen name='Dados' component={Dados} options={headerOptions('Dados do Paciente')} />
+                <AppStack.Screen name='Resultados' component={Resultados} options={headerOptions('Resultados')} />
+
             </AppStack.Navigator>
         </NavigationContainer>
     );

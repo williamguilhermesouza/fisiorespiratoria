@@ -1,9 +1,16 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 
 export default function Dados() {
+    const navigation = useNavigation();
+
+    function navigateToResultados() {
+        navigation.navigate('Resultados');
+    };
+
     return (
         <View style={ styles.container }>
             <View style={ styles.inputView }>
@@ -28,36 +35,30 @@ export default function Dados() {
 
             <View style={ styles.inputView }>
                 <Text style={ styles.inputText}>Peak Flow</ Text>
-                <TextInput style={ styles.textInput } placeholder='xx' />
+                <TextInput style={ styles.textInput } placeholder='L/minuto' />
             </ View>
 
             <View style={ styles.inputView }>
                 <Text style={ styles.inputText}>PIMax</ Text>
-                <TextInput style={ styles.textInput } placeholder='xx' />
+                <TextInput style={ styles.textInput } placeholder='cm.H2O' />
             </ View>
 
             <View style={ styles.inputView }>
                 <Text style={ styles.inputText}>PEMax</ Text>
-                <TextInput style={ styles.textInput } placeholder='xx' />
+                <TextInput style={ styles.textInput } placeholder='cm.H2O' />
             </ View>
 
             <View style={ styles.inputView }>
                 <Text style={ styles.inputText}>CI</ Text>
-                <TextInput style={ styles.textInput } placeholder='xx' />
+                <TextInput style={ styles.textInput } placeholder='ml' />
             </ View>
 
             <View style={ styles.inputView }>
                 <Text style={ styles.inputText}>CV</ Text>
-                <TextInput style={ styles.textInput } placeholder='xx' />
+                <TextInput style={ styles.textInput } placeholder='ml/Kg' />
             </ View>
 
-            <View style={ styles.inputView }>
-                <Text style={ styles.inputText}>P Ideal</ Text>
-                <TextInput style={ styles.textInput } placeholder='xx' />
-            </ View>
-
-
-            <TouchableOpacity style={ styles.button } onPress={ () => {} }>
+            <TouchableOpacity style={ styles.button } onPress={ navigateToResultados }>
                 <Text style={ styles.buttonText } >Calcular</Text>
             </ TouchableOpacity>
         </View>

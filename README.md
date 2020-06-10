@@ -9,7 +9,7 @@ Simple App to calculate patient conditions based on peak flow and other variable
 This app was build using Expo for React-Native, the below design screens show how the app should look like
 when finished:
 
-![splash](https://raw.githubusercontent.com/williamguilhermesouza/fisiorespiratoria/master/design/splash.png)
+![splashscreen](https://raw.githubusercontent.com/williamguilhermesouza/fisiorespiratoria/master/design/splashscreen.png)
 ![screen1](https://raw.githubusercontent.com/williamguilhermesouza/fisiorespiratoria/master/design/screen1.png)
 ![finalscreen](https://raw.githubusercontent.com/williamguilhermesouza/fisiorespiratoria/master/design/finalscreen.png)
 

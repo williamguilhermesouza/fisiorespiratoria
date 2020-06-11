@@ -59,17 +59,59 @@ export default function Dados() {
 
 };
 
+    function calculatePMax() {
+        let pivalue, pevalue;
+
+        if (sex == 'M') {
+            pivalue = 155.3 - (0.8 * age);
+            pevalue = 165.4 - (0.81 * age);
+
+        } else if (sex == 'F') {
+            pivalue = 110.4 - (0.49 * age);
+            pevalue = 115.6 - (0.61 * age);
+        }; 
+
+        return [pivalue, pevalue];
+    };
+
+
+    function calculatePideal() {
+        let pidealvalue;
+        
+        if (sex == 'M') {
+            pidealvalue = 50 + 0.91 * (height - 152.4);
+
+        } else if (sex == 'F') {
+            pidealvalue = 45.5 + 0.91 * (height - 152.4);
+        };
+
+        return pidealvalue;
+    };
+
+    function calculateCV(pvalue) {
+        let cvvalue;
+
+        if (sex == 'M') {
+            cvvalue = 65 * pvalue;
+
+        } else if (sex == 'F') {
+            cvvalue = 75 * pvalue;
+        };
+
+        return cvvalue;
+    };
+
     function calculateResults() {
         let calcflow, calcpimax, calcpemax, calcci, calccv, pideal;
 
         calcflow = calculatePeakFlow();
-        calcpimax = 2;
-        calcpemax = 3;
-        calcci = 4;
-        calccv = 5;
-        pideal = 0;
+        [ calcpimax, calcpemax ] = calculatePMax();
+        pideal = calculatePideal();
+        calcci = 1;
+        calccv = calculateCV(pideal);
+;
 
-        const results = { calcflow, calcpimax, calcpemax, calcci, calccv, pideal }
+        const results = { calcflow, calcpimax, calcpemax, calcci, calccv, pideal };
         return results;
     };
 

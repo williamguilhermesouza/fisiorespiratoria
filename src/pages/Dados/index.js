@@ -92,10 +92,10 @@ export default function Dados() {
         let cvvalue;
 
         if (sex == 'M') {
-            cvvalue = 65 * pvalue;
+            cvvalue = 75 * pvalue;
 
         } else if (sex == 'F') {
-            cvvalue = 75 * pvalue;
+            cvvalue = 65 * pvalue;
         };
 
         return cvvalue;
@@ -107,7 +107,7 @@ export default function Dados() {
         calcflow = calculatePeakFlow();
         [ calcpimax, calcpemax ] = calculatePMax();
         pideal = calculatePideal();
-        calcci = 1;
+        calcci = 2600;
         calccv = calculateCV(pideal);
 ;
 

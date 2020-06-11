@@ -35,11 +35,11 @@ export default StyleSheet.create({
     button: {
         width: '35%',
         height: 50,
-        marginTop: 60,
         borderRadius: 6,
         alignItems: 'center',
         backgroundColor: '#000',
-        bottom: 70,
+        marginTop: '20%',
+        marginBottom: '25%',
     },
 
     buttonText: {

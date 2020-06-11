@@ -22,7 +22,7 @@ export default function Resultados({ route }) {
     } = route.params;
 
     let bgpeak, bgpi, bgpe, bgci, bgcv, bgpideal;
-    let zonepeak, zonepi, zonepe, zoneci, zonecv, zoneideal;
+    let zonepeak, zonepi, zonepe, zoneci, zonecv, zonepideal;
 
     function backgroundsAndConditions() {
         if (realflow > 0.8 * calcflow) {
@@ -94,7 +94,16 @@ export default function Resultados({ route }) {
             zonecv = 'Grave';
         };
 
-        if (weight == pideal) {} else if (weight > pideal) {} else if (weight < pideal) {};
+        if (weight == pideal) {
+            bgpideal = '#C0F1B8';
+            zonepideal = 'Peso Ideal';
+        } else if (weight > pideal) {
+            bgpideal = '#FFC9C9';
+            zonepideal = 'Acima';
+        } else {
+            bgpideal = '#FFC9C9';
+            zonepideal = 'Abaixo';
+        };
 
     };
 
@@ -161,7 +170,7 @@ export default function Resultados({ route }) {
                         <Text style={styles.tableCell}>{weight}</Text>
                         <Text style={styles.tableCell}>{pideal.toFixed(2)}</Text>
                         <Text style={styles.tableCell}>{(pideal-weight).toFixed(2)}</Text>
-                        <Text style={styles.tableCell}>Zona Verde</Text>
+                        <Text style={{...styles.tableCell, backgroundColor: bgpideal}}>{zonepideal}</Text>
                     </View>
 
                 </View>

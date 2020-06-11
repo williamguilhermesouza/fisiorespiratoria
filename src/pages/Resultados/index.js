@@ -41,7 +41,7 @@ export default function Resultados({ route }) {
                         <Text style={styles.tableCell}>Peak Flow</Text>
                         <Text style={styles.tableCell}>{realflow}</Text>
                         <Text style={styles.tableCell}>{calcflow}</Text>
-                        <Text style={styles.tableCell}> > 357,6</Text>
+                        <Text style={styles.tableCell}> > {0.8 *calcflow}</Text>
                         <Text style={styles.tableCell}>Zona Verde</Text>
                     </View>
 

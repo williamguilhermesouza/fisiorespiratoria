@@ -16,10 +16,53 @@ export default function Dados() {
     let [realci, setRealci] = useState(0.0);
     let [realcv, setRealcv] = useState(0.0);
 
+    function calculatePeakFlow() {
+        let height_factor = Math.round(height / 5);
+        const age_factor = Math.round(age / 5) - 4;
+        let flowTable = [];
+        let peakflowvalue = 0;
+
+        if (sex == 'M') {
+            height_factor -= 31;
+            flowTable = [
+                [564, 583, 601, 620, 639, 657],
+                [553, 571, 589, 608, 626, 644],
+                [541, 559, 577, 594, 612, 630],
+                [530, 547, 565, 582, 599, 617],
+                [518, 535, 552, 569, 586, 603],
+                [507, 523, 540, 557, 573, 576],
+                [494, 511, 527, 543, 560, 563],
+                [483, 499, 515, 531, 547, 563],
+                [471, 486, 502, 518, 533, 549],
+                [460, 475, 490, 505, 520, 536],
+                [448, 462, 477, 492, 507, 521]
+            ];
+        } else if (sex == 'F') {
+            height_factor -= 29;
+            flowTable = [
+                [405, 418, 431, 445, 459, 473],
+                [399, 412, 426, 440, 453, 467],
+                [394, 407, 421, 434, 447, 461],
+                [389, 402, 415, 428, 442, 455],
+                [383, 396, 409, 422, 435, 448],
+                [378, 391, 404, 417, 430, 442],
+                [373, 386, 398, 411, 423, 436],
+                [368, 380, 393, 405, 418, 430],
+                [363, 375, 387, 399, 411, 424],
+                [358, 370, 382, 394, 406, 418],
+                [352, 364, 376, 388, 399, 411]
+            ]; 
+        };
+
+        peakflowvalue = flowTable[age_factor][height_factor];
+        return peakflowvalue;
+
+};
+
     function calculateResults() {
         let calcflow, calcpimax, calcpemax, calcci, calccv, pideal;
 
-        calcflow = 1;
+        calcflow = calculatePeakFlow();
         calcpimax = 2;
         calcpemax = 3;
         calcci = 4;

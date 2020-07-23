@@ -13,7 +13,6 @@ export default function Dados() {
     let [realflow, setRealflow] = useState(0.0);
     let [realpimax, setRealpimax] = useState(0.0);
     let [realpemax, setRealpemax] = useState(0.0);
-    let [realci, setRealci] = useState(0.0);
     let [realcv, setRealcv] = useState(0.0);
 
     function calculatePeakFlow() {
@@ -102,16 +101,15 @@ export default function Dados() {
     };
 
     function calculateResults() {
-        let calcflow, calcpimax, calcpemax, calcci, calccv, pideal;
+        let calcflow, calcpimax, calcpemax, calccv, pideal;
 
         calcflow = calculatePeakFlow();
         [ calcpimax, calcpemax ] = calculatePMax();
         pideal = calculatePideal();
-        calcci = 2600;
         calccv = calculateCV(pideal);
 ;
 
-        const results = { calcflow, calcpimax, calcpemax, calcci, calccv, pideal };
+        const results = { calcflow, calcpimax, calcpemax, calccv, pideal };
         return results;
     };
 
@@ -122,12 +120,10 @@ export default function Dados() {
                 realflow,
                 realpimax,
                 realpemax,
-                realci,
                 realcv,
                 calcflow: results.calcflow,
                 calcpimax: results.calcpimax,
                 calcpemax: results.calcpemax,
-                calcci: results.calcci,
                 calccv: results.calccv,
                 weight,
                 pideal: results.pideal
@@ -205,16 +201,6 @@ export default function Dados() {
                     style={ styles.textInput } 
                     placeholder='cm.H2O' 
                     onChangeText={ text => setRealpemax(text) }
-                    keyboardType='decimal-pad'
-                />
-            </ View>
-
-            <View style={ styles.inputView }>
-                <Text style={ styles.inputText}>CI</ Text>
-                <TextInput 
-                    style={ styles.textInput } 
-                    placeholder='ml'
-                    onChangeText={ text => setRealci(text) }
                     keyboardType='decimal-pad'
                 />
             </ View>

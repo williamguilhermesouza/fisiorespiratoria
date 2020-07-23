@@ -10,19 +10,17 @@ export default function Resultados({ route }) {
         realflow, 
         realpimax, 
         realpemax, 
-        realci, 
         realcv,
         calcflow,
         calcpimax,
         calcpemax,
-        calcci,
         calccv,
         weight,
         pideal 
     } = route.params;
 
-    let bgpeak, bgpi, bgpe, bgci, bgcv, bgpideal;
-    let zonepeak, zonepi, zonepe, zoneci, zonecv, zonepideal;
+    let bgpeak, bgpi, bgpe, bgcv, bgpideal;
+    let zonepeak, zonepi, zonepe, zonecv, zonepideal;
 
     function backgroundsAndConditions() {
         if (realflow > 0.8 * calcflow) {
@@ -70,14 +68,6 @@ export default function Resultados({ route }) {
         } else {
             bgpe = '#FFC9C9';
             zonepe = 'Muito intensa';
-        };
-
-        if (realci > 0.79 * calcci) {
-            bgci = '#C0F1B8';
-            zoneci = 'Normal';
-        } else {
-            bgci = '#FFC9C9';
-            zoneci = 'Anormal';
         };
 
         if (realcv > 0.64 * calccv) {
@@ -150,18 +140,10 @@ export default function Resultados({ route }) {
                     </View>
                     
                     <View style={styles.tableHeader}>
-                        <Text style={styles.tableCell}>CI</Text>
-                        <Text style={styles.tableCell}>{realci}</Text>
-                        <Text style={styles.tableCell}>{calcci.toFixed(2)}</Text>
-                        <Text style={styles.tableCell}> > ou = 357,6</Text>
-                        <Text style={styles.tableCell}>Zona Verde</Text>
-                    </View>
- 
-                    <View style={styles.tableHeader}>
                         <Text style={styles.tableCell}>CV</Text>
                         <Text style={styles.tableCell}>{realcv}</Text>
                         <Text style={styles.tableCell}>{calccv.toFixed(2)}</Text>
-                        <Text style={styles.tableCell}> > 357,6</Text>
+                        <Text style={styles.tableCell}> > {(0.8 * calccv).toFixed(2)}</Text>
                         <Text style={{...styles.tableCell, backgroundColor: bgcv}}>{zonecv}</Text>
                     </View>
 

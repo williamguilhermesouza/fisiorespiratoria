@@ -6,6 +6,8 @@
 
 Simple App to calculate patient conditions based on peak flow and other variables measured from the patient.
 
+The App last version can be found in google play at [this](https://play.google.com/store/apps/details?id=com.spasaude.fisiorespiratoria) link.
+
 This app was build using Expo for React-Native, the below design screens show how the app should look like
 when finished:
 
